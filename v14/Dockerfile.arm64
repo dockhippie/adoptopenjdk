@@ -8,7 +8,7 @@ RUN apt-get update && \
   echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/adoptopenjdk.list && \
   apt-get update && \
   apt-get upgrade -y && \
-  apt-get install -y adoptopenjdk-14-hotspot && \
+  apt-get install -y adoptopenjdk-14-hotspot libatomic1 && \
   apt-get purge -y lsb-release gnupg2 && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
