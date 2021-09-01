@@ -1,4 +1,4 @@
-FROM webhippie/ubuntu:20.04-amd64@sha256:58b109ec644ac205ab4e8d3841d4644be0cfe27ca62d74180ee61992fd456de0
+FROM webhippie/ubuntu:20.04-amd64@sha256:67f4cc9011ab4888a514330cf0805712be0e2668ed5515e6715ce1d4859edb9c
 
 WORKDIR /srv/app
 
