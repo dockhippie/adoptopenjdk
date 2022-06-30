@@ -52,8 +52,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: |
-            webhippie/adopopenjdk
-            quay.io/webhippie/adopopenjdk
+            webhippie/adoptopenjdk
+            quay.io/webhippie/adoptopenjdk
           labels: |
             org.opencontainers.image.vendor=Webhippie
             maintainer=Thomas Boerger <thomas@webhippie.de>
@@ -94,8 +94,8 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/adopopenjdk:${{ matrix.version.tag }}-amd64
-            quay.io/webhippie/adopopenjdk:${{ matrix.version.tag }}-amd64
+            webhippie/adoptopenjdk:${{ matrix.version.tag }}-amd64
+            quay.io/webhippie/adoptopenjdk:${{ matrix.version.tag }}-amd64
 
       - name: Build arm64
         id: arm64
@@ -109,8 +109,8 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/adopopenjdk:${{ matrix.version.tag }}-arm64
-            quay.io/webhippie/adopopenjdk:${{ matrix.version.tag }}-arm64
+            webhippie/adoptopenjdk:${{ matrix.version.tag }}-arm64
+            quay.io/webhippie/adoptopenjdk:${{ matrix.version.tag }}-arm64
 
       - name: Build arm
         id: arm
@@ -124,8 +124,8 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/adopopenjdk:${{ matrix.version.tag }}-arm
-            quay.io/webhippie/adopopenjdk:${{ matrix.version.tag }}-arm
+            webhippie/adoptopenjdk:${{ matrix.version.tag }}-arm
+            quay.io/webhippie/adoptopenjdk:${{ matrix.version.tag }}-arm
 
       - name: Hub manifest
         id: manifest1
@@ -135,8 +135,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: webhippie/adopopenjdk:${{ matrix.version.tag }}-ARCH
-          target: webhippie/adopopenjdk:${{ matrix.version.tag }}
+          template: webhippie/adoptopenjdk:${{ matrix.version.tag }}-ARCH
+          target: webhippie/adoptopenjdk:${{ matrix.version.tag }}
           ignore_missing: true
 
       - name: Quay manifest
@@ -147,8 +147,8 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: quay.io/webhippie/adopopenjdk:${{ matrix.version.tag }}-ARCH
-          target: quay.io/webhippie/adopopenjdk:${{ matrix.version.tag }}
+          template: quay.io/webhippie/adoptopenjdk:${{ matrix.version.tag }}-ARCH
+          target: quay.io/webhippie/adoptopenjdk:${{ matrix.version.tag }}
           ignore_missing: true
 
 ...
