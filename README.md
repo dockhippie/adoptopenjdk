@@ -1,20 +1,23 @@
 # adoptopenjdk
 
-[![Docker Build](https://github.com/dockhippie/adoptopenjdk/workflows/docker/badge.svg)](https://github.com/dockhippie/adoptopenjdk/actions?query=workflow%3Adocker) [![Readme Build](https://github.com/dockhippie/adoptopenjdk/workflows/readme/badge.svg)](https://github.com/dockhippie/adoptopenjdk/actions?query=workflow%3Areadme) [![Docker Size](https://img.shields.io/docker/image-size/webhippie/adoptopenjdk/latest)](#) [![Docker Pulls](https://img.shields.io/docker/pulls/webhippie/adoptopenjdk)](https://hub.docker.com/r/webhippie/adoptopenjdk) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/adoptopenjdk)
+[![Docker Build](https://github.com/dockhippie/adoptopenjdk/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/adoptopenjdk/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/adoptopenjdk)
 
-These are docker images for [AdoptOpenJDK](https://adoptopenjdk.net/) running on our [Ubuntu image](https://github.com/dockhippie/ubuntu).
+These are docker images for [AdoptOpenJDK][upstream] running on our
+[Ubuntu image][parent].
 
 ## Versions
 
-For the available versions please look at [Docker Hub](https://hub.docker.com/r/webhippie/adoptopenjdk/tags) or [Quay](https://quay.io/repository/webhippie/adoptopenjdk?tab=tags) or check the existing folders within the [GitHub repository](https://github.com/dockhippie/adoptopenjdk).
+For the available versions please look at [Docker Hub][dockerhub] or
+[Quay][quayio] or check the existing folders within the
+[GitHub repository][github].
 
 ## Volumes
 
-* /srv/app
+*  /srv/app
 
 ## Ports
 
-* None
+*  None
 
 ## Available environment variables
 
@@ -43,3 +46,9 @@ MIT
 ```console
 Copyright (c) 2021 Thomas Boerger <http://www.webhippie.de>
 ```
+
+[upstream]: https://adoptopenjdk.net
+[parent]: https://github.com/dockhippie/ubuntu
+[dockerhub]: https://hub.docker.com/r/webhippie/adoptopenjdk/tags
+[quayio]: https://quay.io/repository/webhippie/adoptopenjdk?tab=tags
+[github]: https://github.com/dockhippie/adoptopenjdk
