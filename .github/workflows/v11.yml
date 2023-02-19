@@ -16,9 +16,6 @@ name: v11
       - .github/workflows/v11.yml
   workflow_dispatch:
 
-concurrency:
-  group: v11
-
 jobs:
   docker:
     runs-on: ubuntu-latest

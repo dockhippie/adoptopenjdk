@@ -16,9 +16,6 @@ name: v15
       - .github/workflows/v15.yml
   workflow_dispatch:
 
-concurrency:
-  group: v15
-
 jobs:
   docker:
     runs-on: ubuntu-latest

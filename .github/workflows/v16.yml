@@ -16,9 +16,6 @@ name: v16
       - .github/workflows/v16.yml
   workflow_dispatch:
 
-concurrency:
-  group: v16
-
 jobs:
   docker:
     runs-on: ubuntu-latest
