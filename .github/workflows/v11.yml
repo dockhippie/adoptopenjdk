@@ -1,23 +1,23 @@
 ---
-name: latest
+name: v11
 
 "on":
   push:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v11/*
+      - .github/workflows/v11.yml
   pull_request:
     branches:
       - master
     paths:
-      - latest/*
-      - .github/workflows/docker.yml
+      - v11/*
+      - .github/workflows/v11.yml
   workflow_dispatch:
 
 concurrency:
-  group: latest
+  group: v11
 
 jobs:
   docker:
@@ -70,42 +70,42 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.amd64
+          context: v11/
+          file: v11/Dockerfile.amd64
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/adoptopenjdk:latest-amd64
-            quay.io/webhippie/adoptopenjdk:latest-amd64
+            webhippie/adoptopenjdk:11-amd64
+            quay.io/webhippie/adoptopenjdk:11-amd64
 
       - name: Build arm64
         id: arm64
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.arm64
+          context: v11/
+          file: v11/Dockerfile.arm64
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/adoptopenjdk:latest-arm64
-            quay.io/webhippie/adoptopenjdk:latest-arm64
+            webhippie/adoptopenjdk:11-arm64
+            quay.io/webhippie/adoptopenjdk:11-arm64
 
       - name: Build arm
         id: arm
         uses: docker/build-push-action@v3
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: latest/
-          file: latest/Dockerfile.arm
+          context: v11/
+          file: v11/Dockerfile.arm
           platforms: linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            webhippie/adoptopenjdk:latest-arm
-            quay.io/webhippie/adoptopenjdk:latest-arm
+            webhippie/adoptopenjdk:11-arm
+            quay.io/webhippie/adoptopenjdk:11-arm
 
       - name: Hub manifest
         id: manifest1
@@ -115,8 +115,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: webhippie/adoptopenjdk:latest-ARCH
-          target: webhippie/adoptopenjdk:latest
+          template: webhippie/adoptopenjdk:11-ARCH
+          target: webhippie/adoptopenjdk:11
           ignore_missing: true
 
       - name: Quay manifest
@@ -127,8 +127,8 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          template: quay.io/webhippie/adoptopenjdk:latest-ARCH
-          target: quay.io/webhippie/adoptopenjdk:latest
+          template: quay.io/webhippie/adoptopenjdk:11-ARCH
+          target: quay.io/webhippie/adoptopenjdk:11
           ignore_missing: true
 
 ...
