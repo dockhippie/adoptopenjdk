@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/ubuntu:20.04-arm@sha256:a3b14f4e77e536d2f49c0bcfd8a3b5e3a9b003b2e583f0a5e97eaa111ce72915
+FROM ghcr.io/dockhippie/ubuntu:20.04-arm64@sha256:52d1da543257e767d5cc0263159397e1c91865713176dd35f1cee676dded5178
 
 WORKDIR /srv/app
 
@@ -8,7 +8,7 @@ RUN apt-get update && \
   echo "deb https://packages.adoptium.net/artifactory/deb $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/adoptopenjdk.list && \
   apt-get update && \
   apt-get upgrade -y && \
-  apt-get install -y adoptopenjdk-20-hotspot libatomic1 && \
+  apt-get install -y adoptopenjdk-17-hotspot libatomic1 && \
   apt-get purge -y lsb-release gnupg2 && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
