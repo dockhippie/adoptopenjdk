@@ -2,6 +2,10 @@
 
 [![Docker Build](https://github.com/dockhippie/adoptopenjdk/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/adoptopenjdk/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/adoptopenjdk)
 
+> This repository have ben archived because the AdoptopenJDK packages won't be
+> available anymore. Please use our Temurin images instead, which is the
+> successor of AdoptopenJDK.
+
 These are docker images for [AdoptOpenJDK][upstream] running on our
 [Ubuntu image][parent].
 
