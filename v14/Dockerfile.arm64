@@ -4,8 +4,8 @@ WORKDIR /srv/app
 
 RUN apt-get update && \
   apt-get install -y lsb-release gnupg2 && \
-  curl -sSL https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - && \
-  echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/adoptopenjdk.list && \
+  curl -sSL https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add - && \
+  echo "deb https://packages.adoptium.net/artifactory/deb $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/adoptopenjdk.list && \
   apt-get update && \
   apt-get upgrade -y && \
   apt-get install -y adoptopenjdk-14-hotspot libatomic1 && \
